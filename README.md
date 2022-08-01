@@ -15,24 +15,40 @@ To start using this software you need to have Ruby installed in your machine
 Then clone this repo:
 
 ```
--$ git clone git@github.com:Ismailco/Blog-app.git
+-$ git clone git@github.com:Ismailco/ROR-GROUP-PROJECT.git
+```
+
+Then install the gems:
+
+```
 ```
 
 ```
--$ cd Blog-app
+-$ cd ROR-GROUP-PROJECT
+```
+
+Then install gems:
+
+```
+-$ bundle install
+```
+
+Then run the server:
+
+```
+-$ rails server
+```
+
+Then visit the URL:
+
+```
+-$ http://localhost:3000
 ```
 
 To run rspec, in your terminal for testing the methods:
 
 ```
 -$ rspec
-```
-
-To run the server:
-
-```
--$ bundle exec rake assets:precompile
--$ rails s
 ```
 
 ### Prerequisites
