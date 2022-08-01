@@ -1,6 +1,6 @@
-# Blog App
+# ROR-Recipe App
 
-This is a blog aplication built using Ruby on rails, and postgresql database
+The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
 
 ## Built With
 
@@ -50,8 +50,15 @@ Ruby and rails installed on your local machine
 👤 **Ismail Courr**
 
 - GitHub: [@ismailco](https://github.com/ismailco)
-- GitHub: [@ismailcourr](https://twitter.com/ismailcourr)
+- Twitter: [@ismailcourr](https://twitter.com/ismailcourr)
 - LinkedIn: [Ismail courr](https://www.linkedin.com/in/ismailcourr)
+
+## Authors
+
+👤 **Ismail Adekunle**
+
+- GitHub: [ismail akinkunmi](https://github.com/ismailakinkunmi)
+- LinkedIn: [Ismail adekunle](linkedin.com/in/adismail4/)
 
 ## 🤝 Contributing
 
