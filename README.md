@@ -53,8 +53,6 @@ Ruby and rails installed on your local machine
 - Twitter: [@ismailcourr](https://twitter.com/ismailcourr)
 - LinkedIn: [Ismail courr](https://www.linkedin.com/in/ismailcourr)
 
-## Authors
-
 👤 **Ismail Adekunle**
 
 - GitHub: [ismail akinkunmi](https://github.com/ismailakinkunmi)
