@@ -1,0 +1,44 @@
+.user-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 98vw;
+}
+
+.foods-recipes {
+    display: flex;
+    margin: 100px 10px;
+}
+
+.foods-recipes button {
+  padding: 100px;
+  width: 30vw;
+  height: 20vh;
+}
+
+.user-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+.user-btn {
+    padding: 5px;
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+    background-color: #f1f1f1;
+    outline: none;
+    border: 1px solid #3e3e3e;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.destroy-btn {
+    background: rgb(255, 125, 125);
+}
+
