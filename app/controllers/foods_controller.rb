@@ -24,7 +24,7 @@ class FoodsController < ApplicationController
 
     respond_to do |format|
       if @food.save
-        format.html { redirect_to foods_path, notice: 'Food was successfully created.' }
+        format.html { redirect_to foods_path, notice: 'New Food added successfully.' }
         format.json { render :show, status: :created, location: @food }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class FoodsController < ApplicationController
     @food.destroy
 
     respond_to do |format|
-      format.html { redirect_to foods_path, notice: 'Food was successfully destroyed.' }
+      format.html { redirect_to foods_path, notice: 'Food was successfully deleted.' }
       format.json { head :no_content }
     end
   end
