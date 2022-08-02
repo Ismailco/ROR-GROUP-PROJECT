@@ -7,6 +7,20 @@
   margin: 0 auto;
 }
 
+.shopping-list {
+  align-items: flex-start;
+}
+
+.shopping-list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
 .food-table {
   margin: 0 auto;
   margin-bottom: 50px;
