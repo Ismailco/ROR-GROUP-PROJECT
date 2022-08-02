@@ -1,0 +1,10 @@
+<nav class="nav-bar">
+  <ul class="nav-list">
+    <li class="nav-item"><%= link_to '🔙', :back, class: 'normalize' %></li>
+    <li class="nav-item"><%= link_to 'Foods', foods_path, class: 'normalize' %><li>
+    <li class="nav-item"><%= link_to 'Recipes', recipes_path, class: 'normalize' %><li>
+    <li class="nav-item"><%= link_to 'Public reciper', recipes_path, class: 'normalize' %><li> <!-- change the path to public_recipes_path -->
+    <li class="nav-item"><%= link_to 'General Shopping list', foods_path, class: 'normalize' %> <li> <!-- change the path to general_shopping_list_path -->
+  </ul>
+  <div class="page-title"><%= params[:controller] %></div>
+</nav>
