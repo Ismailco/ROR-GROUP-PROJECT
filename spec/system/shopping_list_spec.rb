@@ -10,7 +10,7 @@ RSpec.describe 'Foods', type: :system do
   end
 
   it 'has a header for the list' do
-    expect(page).to have_content ('Shopping List')
+    expect(page).to have_content('Shopping List')
   end
 
   it 'has a table with the list of foods' do
