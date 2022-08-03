@@ -8,8 +8,7 @@
       <td><%= @food.created_at %></td>
       <td><%= @food.updated_at %></td>
       <td><%= @food.user_id %></td>
-      <td><%= link_to 'Edit', edit_food_path(@food) %></td>
-      <td><%= link_to 'Destroy', @food, method: :delete %></td>
+      <td><%= button_to "Delete", @food, method: :delete, class: 'user-btn destroy-btn'  %></td>
     </tr>
   </table>
 </div>
