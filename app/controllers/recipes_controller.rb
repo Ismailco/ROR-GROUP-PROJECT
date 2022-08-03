@@ -1,69 +1,58 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :set_recipe, only: %i[:index, :show, :destroy]
 
-  # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes.all
   end
 
-  # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @recipe = current_user.recipes.find(params[:id])    
+  end
 
-  # GET /recipes/new
   def new
     @recipe = Recipe.new
   end
 
-  # GET /recipes/1/edit
-  def edit; end
-
-  # POST /recipes or /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
-
+    @recipe = current_user.recipes.new(recipe_params)
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
-        format.json { render :show, status: :created, location: @recipe }
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }      
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }        
       end
     end
   end
 
-  # PATCH/PUT /recipes/1 or /recipes/1.json
-  def update
-    respond_to do |format|
-      if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
+   def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.public
+      @recipe.update(public: false)
+      flash[:notice] = 'You have update the recipe status to private'
+    else
+      @recipe.update(public: true)
+      flash[:notice] = 'You have update the recipe status to public'
     end
+    redirect_to recipes_path
   end
 
-  # DELETE /recipes/1 or /recipes/1.json
+ 
+  # DELETE /recipes/1 
   def destroy
-    @recipe.destroy
-
-    respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      
+    @recipe = Recipe.find(params[:id])
+    if current_user
+      @recipe.destroy
+      flash[:success] = 'Recipe was successfully destroyed.'
+      redirect_to recipes_path, status: :see_other    
+    else 
+      flash[:danger] = "You can't delete somebody else's account"
+    end   
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_recipe
-    @recipe = Recipe.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :user_id_id)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end
