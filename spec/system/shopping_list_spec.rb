@@ -23,32 +23,13 @@ RSpec.describe 'Foods', type: :system do
     expect(page).to have_content('Price')
   end
 
-  # it 'has a button to add a food' do
-  #   expect(page).to have_button('Add food')
-  # end
+  it 'has the amout of food items to buy' do
+    expect(page).to have_content('Amount of food items to buy:')
+    expect(page).to have_content('0')
+  end
 
-  # it 'has a button to remove a food' do
-  #   expect(page).to have_button('Remove')
-  # end
-
-  # it 'can add a food to the shopping list' do
-  #   fill_in 'food_name', with: 'Pizza'
-  #   fill_in 'food_quantity', with: '1'
-  #   fill_in 'food_unit', with: 'piece'
-  #   click_button 'Add'
-
-  #   expect(page).to have_content('Pizza')
-  # end
-
-  #   it 'can delete a food from the shopping list' do
-  #   fill_in 'food_name', with: 'Pizza'
-  #   fill_in 'food_quantity', with: '1'
-  #   fill_in 'food_unit', with: 'piece'
-  #   click_button 'Add'
-
-  #   click_link 'Pizza'
-  #   click_link 'Delete'
-
-  #   expect(page).to_not have_content('Pizza')
-  # end
+  it 'has total value of food needed' do
+    expect(page).to have_content('Total value of food needed:')
+    expect(page).to have_content('$0')
+  end
 end
