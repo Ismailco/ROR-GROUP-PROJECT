@@ -4,6 +4,22 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :update_allowed_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(User)
+      user_path(resource)
+    else
+      super
+    end
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    if resource_or_scope == :user
+      new_user_session_path
+    else
+      super
+    end
+  end
+
   protected
 
   def update_allowed_parameters
