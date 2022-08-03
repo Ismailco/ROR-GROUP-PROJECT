@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all
+    @foods = current_user.foods.all
   end
 
   # GET /foods/1 or /foods/1.json
@@ -11,7 +11,7 @@ class FoodsController < ApplicationController
 
   # GET /foods/new
   def new
-    @food = Food.new
+    @food = current_user.foods.new
   end
 
   # GET /foods/1/edit
