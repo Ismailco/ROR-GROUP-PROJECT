@@ -75,3 +75,21 @@
 .normalize:active {
   color: #444;
 }
+
+.recipe {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  border-style: 5px solid black;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  border-style: solid;
+  padding: 2rem;
+  width: 50%;
+}
+
+.recipe-name {
+  font-weight: 400;
+  text-decoration: none;
+}
