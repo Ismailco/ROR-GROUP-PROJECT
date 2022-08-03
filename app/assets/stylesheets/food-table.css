@@ -1,0 +1,38 @@
+.foods {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 70vw;
+  margin: 0 auto;
+}
+
+.food-table {
+  margin: 0 auto;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+tr:nth-child(2n) {
+  background-color: rgba(62, 62, 62, 0.07);
+}
+
+.food-t-name,
+.food-t-unit,
+.food-t-price,
+.food-t-actions {
+  width: 150px;
+  text-align: center;
+}
+
+.foods-btn {
+  width: 100%;
+}

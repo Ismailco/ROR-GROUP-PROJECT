@@ -1,9 +1,9 @@
-<h1>New food</h1>
+<h1 class="new-food-header">New food</h1>
 
 <%= render "form", food: @food %>
 
 <br>
 
 <div>
-  <%= link_to "Back to foods", foods_path %>
+  <%= button_to "Back to foods", foods_path, method: :get, class: 'user-btn food-btn' %>
 </div>
