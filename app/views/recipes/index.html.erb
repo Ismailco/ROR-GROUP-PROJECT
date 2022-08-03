@@ -1,13 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Recipes</h1>
+<h1 class= 'recipes-h1'>Recipes</h1>
 
-<div id="recipes">
+<div class ="recipes-container">
   <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+    <div class='recipe'>
+      <div > 
+        <p class='recipe-name'><%= link_to recipe.name, recipe %> </p>
+        <p><%= link_to 'Remove', recipe, data: { turbo_method: :delete } %></p>
+      </div>
+
+      <div>    
+        <p>
+          <%= recipe.description %>    
+        </p>
+      </div>    
+    </div>  
+    
   <% end %>
 </div>
 

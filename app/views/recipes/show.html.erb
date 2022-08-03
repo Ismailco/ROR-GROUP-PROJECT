@@ -1,10 +1,75 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @recipe %>
+  <section class='recipe-show' >
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+  <p class='recipe-name'> <%= @recipe.name %> </p>
+
+  <div>
+    <p>
+      <strong>Preparation time:</strong>
+      <%= @recipe.preparation_time %>
+    </p>
+
+    <div>
+    <label class="switch">
+    <input type="checkbox <%= @recipe.public %>">
+    <span class="slider round"></span>
+    </label>
+    </div>   
+  
+  </div>
+ 
+  <p>
+    <strong>Cooking time:</strong>
+    <%= @recipe.cooking_time %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @recipe.description %>
+  </p>
+  
+</section>
+
+<p>steps go here...</p>
+
+
+<table>
+  <tr>
+    <th>Food</th>
+    <th>Quantity</th>
+    <th>Value</th>
+    <th>Actions</th>
+  </tr>
+  <tr>
+    <td>@food.name</td>
+    <td>@food.Quantity</td>
+    <td>@food.price</td>    
+  </tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <%= link_to "Back to recipes", recipes_path %>
-
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
-</div>
