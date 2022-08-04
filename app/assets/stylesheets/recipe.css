@@ -17,6 +17,12 @@
   padding: 0.5rem 1rem;
 }
 
+.public-row + div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
 .recipe-card div:first-child {
   display: flex;
   flex-direction: column;
@@ -70,7 +76,7 @@
   justify-content: space-between;
 }
 
-/* slide button*/
+/* slide butto */
 
 .switch {
   position: relative;
@@ -164,8 +170,7 @@ input:checked + .slider:before {
   text-decoration: none;
 }
 
-.public-row,
-.public-row + div {
+.public-row {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
