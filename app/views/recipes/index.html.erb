@@ -1,23 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<section class= 'recipe-section'>
 
-<h1 class= 'recipes-h1'>Recipes</h1>
+  <p style="color: green"><%= notice %></p>
 
-<div class ="recipes-container">
-  <% @recipes.each do |recipe| %>
-    <div class='recipe'>
-      <div > 
-        <p class='recipe-name'><%= link_to recipe.name, recipe %> </p>
-        <p><%= link_to 'Remove', recipe, data: { turbo_method: :delete } %></p>
-      </div>
+  <h1 class= 'recipes-h1'>Recipes</h1>
 
-      <div>    
-        <p>
-          <%= recipe.description %>    
-        </p>
-      </div>    
-    </div>  
-    
-  <% end %>
-</div>
+  <div class ="recipes-container">
+    <% @recipes.each do |recipe| %>
+      <div class='recipe'>
+        <div > 
+          <p class='recipe-name'><%= link_to recipe.name, recipe %> </p>
+          <p><%= link_to 'Remove', recipe, data: { turbo_method: :delete } %></p>
+        </div>
 
-<%= link_to "New recipe", new_recipe_path %>
+        <div>    
+          <p>
+            <%= recipe.description %>    
+          </p>
+        </div>    
+      </div>  
+      
+    <% end %>
+  </div>
+
+  <%= link_to "New recipe", new_recipe_path %>
+
+</section>
