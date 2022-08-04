@@ -1,15 +1,13 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[:index, :show, :destroy]
+  before_action :set_recipe, only: %i[index show destroy]
 
   def index
     @recipes = current_user.recipes.all
   end
 
   def show
-    @recipe = Recipe.find(params[:id])    
-    if @recipe.user_id == current_user.id
-      @recipe    
-    end
+    @recipe = Recipe.find(params[:id])
+    @recipe if @recipe.user_id == current_user.id
   end
 
   def new
@@ -20,14 +18,14 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.new(recipe_params)
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }      
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
       else
-        format.html { render :new, status: :unprocessable_entity }        
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
 
-   def update
+  def update
     @recipe = Recipe.find(params[:id])
     if @recipe.public
       @recipe.update(public: false)
@@ -39,18 +37,16 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
- 
-  # DELETE /recipes/1 
+  # DELETE /recipes/1
   def destroy
-      
     @recipe = Recipe.find(params[:id])
     if current_user
       @recipe.destroy
       flash[:success] = 'Recipe was successfully destroyed.'
-      redirect_to recipes_path, status: :see_other    
-    else 
+      redirect_to recipes_path, status: :see_other
+    else
       flash[:danger] = "You can't delete somebody else's account"
-    end   
+    end
   end
 
   private
