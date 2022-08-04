@@ -6,7 +6,10 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = current_user.recipes.find(params[:id])    
+    @recipe = Recipe.find(params[:id])    
+    if @recipe.user_id == current_user.id
+      @recipe    
+    end
   end
 
   def new
