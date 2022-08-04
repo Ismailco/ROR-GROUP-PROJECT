@@ -29,7 +29,10 @@
     <%= @recipe.description %>
   </p>
 
-  <%form_with model: recipe_foods do |f| %>
+<%= form_with(model:RecipeFood.new, url: recipe_recipe_foods_path(@recipe), method: :post) do |f| %>
+    <%= f.number_field :quantity, placeholder: 'Quantity', min: 0, step:0.01 %>
+    <%= f.collection_select :food_id, @recipe.user.foods, :id, :name %>
+    <%= f.submit 'Add' %>
   <% end %>
 
 
@@ -47,11 +50,11 @@
       <tr>
         <td><%= food_recipe.food.name %></td>
         <td> <%= food_recipe.food.measurement_unit %> </td>
-        <td> <%= food_recipe.food.unit_price*food_recipe.quantity %></td>
+        <td> <%= food_recipe.food.price*food_recipe.quantity %></td>
         <td> 
         <div>
-          <%= link_to "Modify", edit_recipe_food_recipe_path(@recipe.id, food_recipe.id) %> 
-          <%= button_to "Remove", recipe_food_recipe_path(@recipe.id, food_recipe.id), :method => :delete %>
+          <%= link_to "Modify", recipe_recipe_foods_path(@recipe.id, food_recipe.id) %> 
+          <%= button_to "Remove", recipe_recipe_foods_path(@recipe.id, food_recipe.id), :method => :delete %>
         </div>       
         </td>
       </tr>
