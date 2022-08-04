@@ -10,12 +10,12 @@
       <%= @recipe.preparation_time %>
     </p>
 
-    <div>
-    <label class="switch">
-    <input type="checkbox <%= @recipe.public %>">
-    <span class="slider round"></span>
-    </label>
-    </div>   
+    <%=form_with url: recipe_path(@recipe), method: "patch" do %>
+            <label for="public-toggle" class="switch">
+              <%= check_box_tag 'public' , @recipe.public, @recipe.public, id: "public-toggle" , onchange: "this.form.submit()" %>
+              <span class="slider round"></span>
+            </label>
+    <% end %>
   
   </div>
  
@@ -28,28 +28,41 @@
     <strong>Description:</strong>
     <%= @recipe.description %>
   </p>
+
+
+   <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @recipe.recipe_foods.each do |food_recipe| %>
+      <tr>
+        <td><%= food_recipe.food.name %></td>
+        <td> <%= food_recipe.food.measurement_unit %> </td>
+        <td> <%= food_recipe.food.unit_price*food_recipe.quantity %></td>
+        <td> 
+        <div>
+          <%= link_to "Modify", edit_recipe_food_recipe_path(@recipe.id, food_recipe.id) %> 
+          <%= button_to "Remove", recipe_food_recipe_path(@recipe.id, food_recipe.id), :method => :delete %>
+        </div>       
+        </td>
+      </tr>
+    <% end %>
+   </tbody>
+  </table>
+
+
   
 </section>
 
-<p>steps go here...</p>
-
-
-<table>
-  <tr>
-    <th>Food</th>
-    <th>Quantity</th>
-    <th>Value</th>
-    <th>Actions</th>
-  </tr>
-  <tr>
-    <td>@food.name</td>
-    <td>@food.Quantity</td>
-    <td>@food.price</td>    
-  </tr>
 
 
 
-</table>
 
 
 
