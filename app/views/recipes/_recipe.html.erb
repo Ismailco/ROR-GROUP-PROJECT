@@ -1,21 +1,30 @@
-<div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
+<section class='recipe-show' >
 
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
-  </p>
+  <p class='recipe-name'> <%= @recipe.name %> </p>
 
+  <div>
+    <p>
+      <strong>Preparation time:</strong>
+      <%= @recipe.preparation_time %>
+    </p>
+
+    <p>
+      <strong>public:</strong>
+      <%= @recipe.public %>
+    </p>
+  
+  </div>
+ 
   <p>
     <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
+    <%= @recipe.cooking_time %>
   </p>
 
   <p>
     <strong>Description:</strong>
+
+    <%= @recipe.description %>
+
     <%= recipe.description %>
   </p>
 
@@ -24,4 +33,5 @@
     <%= recipe.user_id %>
   </p>
 
-</div>
+  
+</section>

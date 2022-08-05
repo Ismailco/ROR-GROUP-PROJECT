@@ -1,10 +1,81 @@
-<p style="color: green"><%= notice %></p>
+<section>
+  <% if @recipe.user_id == current_user.id  %>
+    <div class='recipe-show' >
 
-<%= render @recipe %>
+    <p style="color: green"><%= notice %> </p>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
+   <p class='recipe-name'> <%= @recipe.name %> </p>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
-</div>
+    <div class='preparation-section'>
+      <p>
+        <strong>  Preparation time:</strong>
+        <%= @recipe.preparation_time %>
+      </p>
+
+      <%=form_with url: recipe_path(@recipe), class: 'public-switch', method: "patch" do %>
+              <label for="public-toggle" class="switch">
+                <%= check_box_tag 'public' , @recipe.public, @recipe.public, id: "public-toggle" , onchange: "this.form.submit()" %>
+                <span class="slider round"></span>
+              </label>
+      <% end %>
+    
+    </div>
+  
+    <div>
+      <strong>Cooking time:</strong>
+      <%= @recipe.cooking_time %>
+    </div>
+    
+    <div>    
+      <strong>Description:</strong>
+      <%= @recipe.description %>  
+    </div>
+
+    <div>
+      <strong>Steps go here...</strong>
+    </div>
+
+    <%= form_with(model:RecipeFood.new, url: recipe_recipe_foods_path(@recipe),class:'ingredient-section', method: :post) do |f| %>
+      <div>
+        <%= f.number_field :quantity, placeholder: 'Quantity', min: 0, step:0.01 %>
+        <%= f.collection_select :food_id, @recipe.user.foods, :id, :name %>
+      </div>
+      <%= f.submit 'Add ingredient', class:'add-ingredient' %>
+    <% end %>  
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @recipe.recipe_foods.each do |food_recipe| %>
+        <tr>
+          <td><%= food_recipe.food.name %></td>
+          <td> <%= food_recipe.food.measurement_unit %> </td>
+          <td>$ <%= food_recipe.food.price %></td>
+          <td> 
+          <div class='modify-delete'>
+            <%= link_to "Modify" %> 
+            <%= button_to "Remove" %>
+          </div>       
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+    
+    <%= link_to "Back to recipes", recipes_path %>
+  </div>    
+      
+  <% else %>
+    <h1> Oops! page restricted, You can't see others show page.</h1>    
+  <% end %>
+  
+</section>
+
