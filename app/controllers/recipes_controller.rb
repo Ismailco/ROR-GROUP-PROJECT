@@ -40,10 +40,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     if current_user
       @recipe.destroy
-      flash[:success] = 'Recipe was successfully destroyed.'
-      redirect_to recipes_path, status: :see_other
-    else
-      flash[:danger] = "You can't delete somebody else's account"
+        redirect_to recipes_path, notice: 'Recipe was successfully deleted.'       
     end
   end
 
