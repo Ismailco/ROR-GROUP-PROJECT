@@ -1,4 +1,4 @@
- require 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe 'Recipes#index', type: :system do
   before do
@@ -16,6 +16,4 @@ RSpec.describe 'Recipes#index', type: :system do
   it 'has a content New recipe' do
     expect(page).to have_content('New recipe')
   end
-
 end
-
