@@ -1,6 +1,4 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[index show destroy]
-
   def index
     @recipes = current_user.recipes.all
   end
