@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_01_125941) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_03_115357) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_125941) do
     t.string "name"
     t.string "preparation_time"
     t.string "cooking_time"
-    t.boolean "public"
+    t.boolean "public", default: false
     t.text "description"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
