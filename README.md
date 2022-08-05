@@ -11,7 +11,6 @@ The Recipe app keeps track of all your recipes, ingredients, and inventory. It w
 ## Getting Started
 
 To start using this software you need to have Ruby installed in your machine
-
 Then clone this repo:
 
 ```
