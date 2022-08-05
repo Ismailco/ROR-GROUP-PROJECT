@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+  <div class="user-content">
+    <%= render @user %>
+    <div class="foods-recipes">
+      <%= button_to "Foods", foods_path, method: :get, class: 'user-btn' %>
+      <%= button_to "Recipes", recipes_path, method: :get, class: 'user-btn' %>
+    </div>
+    <div class="user-btns">
+      <% if user_signed_in? %>
+        <%= button_to "Change the user name", edit_user_path(@user), method: :get, class: 'user-btn' %>
+        <%= button_to "See all users", users_path, method: :get, class: 'user-btn' %>
+
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'user-btn' %>
+        <%= button_to "Delete my account", @user, method: :delete, class: 'user-btn destroy-btn' %>
+      <% end %>
+    </div>
+  </div>

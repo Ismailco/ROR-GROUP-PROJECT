@@ -1,0 +1,24 @@
+<section class= 'recipe-section'>
+  <h1>All recipes</h1>
+
+  <p style="color: green"><%= notice %></p> 
+  
+    <% @recipes.each do |recipe| %>
+      <div class='recipe-card'>
+        <div> 
+          <p class='recipe-name'><%= link_to recipe.name, recipe %> </p>
+          <p class='remove'><%= link_to 'Remove', recipe, data: { turbo_method: :delete } %></p>
+        </div>
+
+        <div>    
+          <p class='recipe-description'>
+            <%= recipe.description %>    
+          </p>
+        </div>    
+      </div>  
+      
+    <% end %>  
+
+  <%= link_to "New recipe", new_recipe_path, class:'add-recipe' %>
+
+</section>

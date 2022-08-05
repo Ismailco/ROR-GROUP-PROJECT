@@ -1,0 +1,37 @@
+<section class='recipe-show' >
+
+  <p class='recipe-name'> <%= @recipe.name %> </p>
+
+  <div>
+    <p>
+      <strong>Preparation time:</strong>
+      <%= @recipe.preparation_time %>
+    </p>
+
+    <p>
+      <strong>public:</strong>
+      <%= @recipe.public %>
+    </p>
+  
+  </div>
+ 
+  <p>
+    <strong>Cooking time:</strong>
+    <%= @recipe.cooking_time %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+
+    <%= @recipe.description %>
+
+    <%= recipe.description %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= recipe.user_id %>
+  </p>
+
+  
+</section>

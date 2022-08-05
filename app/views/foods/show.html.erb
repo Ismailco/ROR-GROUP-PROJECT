@@ -1,0 +1,14 @@
+<div id="<%= dom_id @food %>">
+  <table>
+    <tr style="display: flex; flex-direction: column">
+      <td><%= @food.name %></td>
+      <td><%= @food.price %></td>
+      <td><%= @food.quantity %></td>
+      <td><%= @food.measurement_unit %></td>
+      <td><%= @food.created_at %></td>
+      <td><%= @food.updated_at %></td>
+      <td><%= @food.user_id %></td>
+      <td><%= button_to "Delete", @food, method: :delete, class: 'user-btn destroy-btn'  %></td>
+    </tr>
+  </table>
+</div>
