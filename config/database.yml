@@ -84,6 +84,6 @@ test:
 production:
   <<: *default
   database: ROR_GROUP_PROJECT_production
-  url: postgres://lvskmzyouukrmv:c5d891e9b6ef6449fcd2bf1649db2b71a6fd40e8639ca868d08fb9010eb84d93@ec2-3-213-228-206.compute-1.amazonaws.com:5432/dbvke83en6d2d7
+  url: <%= ENV['DATABASE_URL'] %>
   username: ROR_GROUP_PROJECT
   password: <%= ENV["ROR_GROUP_PROJECT_DATABASE_PASSWORD"] %>

@@ -9,8 +9,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: 'contact@ismailcourr.ml',
-    password: 'password',
+    user_name: Rails.application.credentials.dig(:smtp, :user_name),
+    password: Rails.application.credentials.dig(:smtp, :password),
     domain: 'localhost',
     address: 'smtp.yandex.com',
     port: '587',
