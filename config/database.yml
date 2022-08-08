@@ -84,6 +84,6 @@ test:
 production:
   <<: *default
   database: ROR_GROUP_PROJECT_production
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV["ROR_GROUP_PROJECT_DATABASE_URL"] %>
   username: ROR_GROUP_PROJECT
   password: <%= ENV["ROR_GROUP_PROJECT_DATABASE_PASSWORD"] %>
